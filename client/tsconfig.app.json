@@ -28,10 +28,14 @@
     "paths": {
       "~/*": [
         "./src/*"
+      ],
+      "@shared-types": [
+        "./../shared-types/index.ts"
       ]
     }
   },
   "include": [
-    "src"
+    "src",
+    "./../shared-types/*"
   ]
 }

@@ -23,6 +23,9 @@ pnpm-debug.log*
 # Ignore but keep example env file
 !.env.example
 
+# TODO
+TODO.md
+
 # OS files
 .DS_Store
 Thumbs.db
