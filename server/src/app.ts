@@ -1,8 +1,9 @@
 import dotenv from "dotenv";
 
 const mode = process.env.NODE_ENV || "development";
-console.log("MODE", mode, process.env.NODE_ENV);
-const envFiles = [`.env.${mode}`, ".env"];
+
+// - /etc/secrets/.env.${mode} for production deployment only
+const envFiles = ["/etc/secrets/.env.${mode}", `.env.${mode}`, ".env"];
 dotenv.config({ path: envFiles });
 
 console.log(
