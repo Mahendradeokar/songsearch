@@ -7,7 +7,6 @@ import {
   deletePlaylist,
   addTrackToPlaylist,
   createShareToken,
-  getSharedPlaylist,
 } from "@src/controllers/playlist-controller";
 import { authMiddleware } from "@src/middleware/auth-middleware";
 

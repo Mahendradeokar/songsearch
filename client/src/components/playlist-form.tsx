@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { cn } from "~/lib/utils";
 import { Button } from "./ui/button";
-import { Loading } from "./loading";
 import { Input } from "./ui/input";
+import { Loader2 } from "lucide-react";
 
 const playlistFormSchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
@@ -88,7 +88,7 @@ function PlaylistFormButton({
       disabled={isSubmitting || props.disabled || !isValid || !isDirty}
       {...props}
     >
-      {isSubmitting ? <Loading className="min-h-12" /> : children}
+      {isSubmitting ? <Loader2 className="h-6 w-6 animate-spin" /> : children}
     </Button>
   );
 }

@@ -9,8 +9,8 @@ import { getSharedPlaylist } from "@src/controllers/playlist-controller";
 const router: ExpressRouter = Router();
 
 router.use("/auth", authRouter);
-router.use("/playlist", authMiddleware, playlistRouter);
 router.get("/playlist/shared/:token", getSharedPlaylist);
+router.use("/playlist", authMiddleware, playlistRouter);
 router.use("/song", authMiddleware, songRouter);
 
 export default router;
