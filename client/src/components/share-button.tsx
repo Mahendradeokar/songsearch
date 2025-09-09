@@ -17,7 +17,7 @@ export function ShareButton({
   const [loading, setLoading] = useState(false);
 
   const createSharedLinked = (token: string) => {
-    return `${window.location.origin}/playlist/shared/${token}`;
+    return `${window.location.origin}/shared/playlist/${token}`;
   };
 
   const handleCopy = async () => {
