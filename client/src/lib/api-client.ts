@@ -12,6 +12,7 @@ import { toast } from "sonner";
 
 type Method = "get" | "post" | "put" | "patch" | "delete";
 export const BASE_SERVER_URL = `${import.meta.env.VITE_BASE_URL}/api/v1`;
+console.log("baser url main ", BASE_SERVER_URL);
 
 export class ApiClient {
   protected client: AxiosInstance;
@@ -78,6 +79,7 @@ export class ApiClient {
     { data: R; error?: never } | { data?: never; error: ErrorResponse }
   > {
     const { method, url, payload, options } = args;
+    console.log("base url", BASE_SERVER_URL, import.meta.env.VITE_BASE_URL);
     const axiosMethod = this.client[method].bind(this.client);
 
     const timeoutId = setTimeout(() => {

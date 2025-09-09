@@ -17,7 +17,7 @@ import PlaylistPage from "./page/playlist";
 import PlaylistShareView from "./page/playlist-share-view";
 import { getUser } from "./lib/request/auth-requests";
 import { Loading } from "./components/loading";
-import { clearAuthToken } from "./lib/utils";
+import { clearAuthToken, getAuthToken } from "./lib/utils";
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
   const user = useUserStore((state) => state.user);
@@ -37,6 +37,14 @@ function ProtectedLayout() {
   useEffect(() => {
     (async () => {
       setStatus("loading");
+      const token = getAuthToken();
+      if (!token) {
+        setStatus("failed");
+        setReason("No auth token found");
+        navigate("/login");
+        return;
+      }
+
       const { error, data } = await getUser();
       if (error) {
         clearAuthToken();
