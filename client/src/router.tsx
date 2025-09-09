@@ -91,8 +91,8 @@ export default function AppRouter() {
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<SongSearch />} />
           <Route path="/playlist" element={<PlaylistPage />} />
-          <Route path="/shared/playlist/:id" element={<PlaylistShareView />} />
         </Route>
+        <Route path="/shared/playlist/:id" element={<PlaylistShareView />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
